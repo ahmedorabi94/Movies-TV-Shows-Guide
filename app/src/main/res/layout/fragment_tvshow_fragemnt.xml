@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="IsConnected"
+            type="Boolean" />
+    </data>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/black"
+            android:orientation="vertical">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardView_PopularTVShows"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:orientation="vertical"
+                app:cardBackgroundColor="@color/colorPrimaryDark"
+                app:visibleGone="@{IsConnected}">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingTop="4dp">
+
+                    <TextView
+                        android:id="@+id/tv_PopularTVShows"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="6dp"
+                        android:layout_marginBottom="6dp"
+                        android:text="@string/popular_tv_shows"
+                        android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                        android:textColor="@android:color/white"
+                        android:textSize="20sp"
+                        android:textStyle="normal" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recycler_PopularTVShows"
+                        android:layout_width="match_parent"
+                        android:layout_height="225dp"
+                        android:layout_marginStart="3dp"
+                        android:clickable="true"
+                        android:focusable="true" />
+                </LinearLayout>
+
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardView_topRatedTvShows"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/cardView_PopularTVShows"
+                android:layout_marginTop="12dp"
+                android:orientation="vertical"
+                app:cardBackgroundColor="@color/colorPrimaryDark"
+                app:visibleGone="@{IsConnected}">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingTop="4dp">
+
+                    <TextView
+                        android:id="@+id/tv_topRatedTVSHOWS"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="6dp"
+                        android:layout_marginBottom="6dp"
+                        android:text="@string/top_rated_tv_shows"
+                        android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                        android:textColor="@android:color/white"
+                        android:textSize="20sp"
+                        android:textStyle="normal" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recyclerView_topRatedTVSHOWS"
+                        android:layout_width="match_parent"
+                        android:layout_height="225dp"
+                        android:layout_marginStart="3dp"
+                        android:clickable="true"
+                        android:focusable="true" />
+
+                </LinearLayout>
+
+
+            </androidx.cardview.widget.CardView>
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardView_CurrentlyAiringTVShows"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/cardView_topRatedTvShows"
+                android:layout_marginTop="12dp"
+                android:orientation="vertical"
+                app:cardBackgroundColor="@color/colorPrimaryDark"
+                app:visibleGone="@{IsConnected}">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingTop="4dp">
+
+                    <TextView
+                        android:id="@+id/tv_CurrentlyAiringTVShows"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="6dp"
+                        android:layout_marginBottom="6dp"
+                        android:text="@string/currently_airing_tv_shows"
+                        android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                        android:textColor="@android:color/white"
+                        android:textSize="20sp"
+                        android:textStyle="normal" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recyclerView_CurrentlyAiringTVShows"
+                        android:layout_width="match_parent"
+                        android:layout_height="225dp"
+                        android:layout_marginStart="3dp"
+                        android:clickable="true"
+                        android:focusable="true" />
+                </LinearLayout>
+
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardView_AiringToday"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/cardView_CurrentlyAiringTVShows"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="12dp"
+                android:orientation="vertical"
+                app:cardBackgroundColor="@color/colorPrimaryDark"
+                app:visibleGone="@{IsConnected}">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingTop="4dp">
+
+                    <TextView
+                        android:id="@+id/tv_AiringToday"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="6dp"
+                        android:layout_marginBottom="6dp"
+                        android:text="@string/tv_shows_airing_today"
+                        android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                        android:textColor="@android:color/white"
+                        android:textSize="20sp"
+                        android:textStyle="normal" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recyclerView_AiringToday"
+                        android:layout_width="match_parent"
+                        android:layout_height="225dp"
+                        android:layout_marginStart="3dp"
+                        android:clickable="true"
+                        android:focusable="true" />
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardView_TopAction"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/cardView_AiringToday"
+                android:layout_marginBottom="12dp"
+                android:orientation="vertical"
+                app:cardBackgroundColor="@color/colorPrimaryDark"
+                app:visibleGone="@{IsConnected}">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingTop="4dp">
+
+                    <TextView
+                        android:id="@+id/tv_TopAction"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="6dp"
+                        android:layout_marginBottom="6dp"
+                        android:text="@string/top_action_amp_adventure_tv"
+                        android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                        android:textColor="@android:color/white"
+                        android:textSize="20sp"
+                        android:textStyle="normal" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recyclerView_TopAction"
+                        android:layout_width="match_parent"
+                        android:layout_height="225dp"
+                        android:layout_marginStart="3dp"
+                        android:clickable="true"
+                        android:focusable="true" />
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardView_TopCrime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/cardView_TopAction"
+                android:layout_marginBottom="12dp"
+                android:orientation="vertical"
+                app:cardBackgroundColor="@color/colorPrimaryDark"
+                app:visibleGone="@{IsConnected}">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingTop="4dp">
+
+                    <TextView
+                        android:id="@+id/tv_TopDrama"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="6dp"
+                        android:layout_marginBottom="6dp"
+                        android:text="@string/top_drama_amp_crime"
+                        android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                        android:textColor="@android:color/white"
+                        android:textSize="20sp"
+                        android:textStyle="normal" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recyclerView_TopCrime"
+                        android:layout_width="match_parent"
+                        android:layout_height="225dp"
+                        android:layout_marginStart="3dp"
+                        android:clickable="true"
+                        android:focusable="true" />
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardView_TopComedy"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/cardView_TopCrime"
+                android:layout_marginBottom="12dp"
+                android:orientation="vertical"
+                app:cardBackgroundColor="@color/colorPrimaryDark"
+                app:visibleGone="@{IsConnected}">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingTop="4dp">
+
+                    <TextView
+                        android:id="@+id/tv_TopComedy"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="6dp"
+                        android:layout_marginBottom="6dp"
+                        android:text="@string/top_comedy"
+                        android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                        android:textColor="@android:color/white"
+                        android:textSize="20sp"
+                        android:textStyle="normal" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recyclerView_TopComedy"
+                        android:layout_width="match_parent"
+                        android:layout_height="225dp"
+                        android:layout_marginStart="3dp"
+                        android:clickable="true"
+                        android:focusable="true" />
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardView_TopWar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/cardView_TopComedy"
+                android:layout_marginBottom="12dp"
+                android:orientation="vertical"
+                app:cardBackgroundColor="@color/colorPrimaryDark"
+                app:visibleGone="@{IsConnected}">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingTop="4dp">
+
+                    <TextView
+                        android:id="@+id/tv_TopWar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="6dp"
+                        android:layout_marginBottom="6dp"
+                        android:text="@string/war_amp_politics"
+                        android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                        android:textColor="@android:color/white"
+                        android:textSize="20sp"
+                        android:textStyle="normal" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recyclerView_TopWar"
+                        android:layout_width="match_parent"
+                        android:layout_height="225dp"
+                        android:layout_marginStart="3dp"
+                        android:clickable="true"
+                        android:focusable="true" />
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+
+            <TextView
+                android:id="@+id/empty_view_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="@string/you_don_t_have_an_internet_connection"
+                android:textColor="@android:color/white"
+                android:textStyle="normal"
+                app:visibleGone="@{!IsConnected}" />
+
+
+        </RelativeLayout>
+
+
+    </ScrollView>
+
+</layout>
+

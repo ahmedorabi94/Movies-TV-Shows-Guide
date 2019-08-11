@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="reviewItem"
+            type="com.test.ahmedorabi.movieapp.model.appModels.ReveiwItem" />
+
+
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="@color/colorPrimaryDark">
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:background="?android:attr/selectableItemBackground"
+            android:orientation="vertical"
+            android:padding="5dp">
+
+            <TextView
+                android:id="@+id/author_review"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="5dp"
+                android:text="@{`A review by ` + reviewItem.author}"
+                android:textColor="@android:color/white"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/content_review"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
+                android:ellipsize="end"
+                android:maxLines="8"
+                android:text="@{reviewItem.review}"
+                android:textAlignment="gravity"
+                android:textColor="@android:color/white"
+                android:textSize="13sp"
+                android:textStyle="normal" />
+
+        </LinearLayout>
+
+
+        <ImageButton
+            android:id="@+id/expand_collapse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|bottom"
+            android:layout_marginEnd="12dp"
+            android:layout_marginBottom="3dp"
+            android:background="@android:color/transparent"
+            android:contentDescription="@string/image_arrow_button"
+            android:src="@drawable/ic_chevron_down_white_24dp" />
+    </androidx.cardview.widget.CardView>
+
+
+</layout>
+

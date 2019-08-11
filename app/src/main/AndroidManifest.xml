@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.test.ahmedorabi.movieapp">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <application
+        android:name="com.test.ahmedorabi.movieapp.MoviesApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_title"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name="com.test.ahmedorabi.movieapp.view.ui.MainActivity"
+            android:label="@string/app_title"
+            android:theme="@style/AppTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.test.ahmedorabi.movieapp.view.ui.DetailActivity"
+            android:configChanges="orientation"
+            android:label="Detail Movie"
+            android:parentActivityName="com.test.ahmedorabi.movieapp.view.ui.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.test.ahmedorabi.movieapp.view.ui.MainActivity" />
+        </activity>
+        <activity
+            android:name="com.test.ahmedorabi.movieapp.view.ui.ReveiwActivity"
+            android:label="@string/reviews"
+            android:parentActivityName="com.test.ahmedorabi.movieapp.view.ui.DetailActivity"
+            android:theme="@style/AppTheme" />
+
+        <activity android:name="com.test.ahmedorabi.movieapp.view.ui.ActorDetailActivity" />
+        <activity
+            android:name="com.test.ahmedorabi.movieapp.view.ui.FavouriteActivity"
+            android:label="Watchlist" />
+        <activity
+            android:name="com.test.ahmedorabi.movieapp.view.ui.FavDetailActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.test.ahmedorabi.movieapp.view.ui.SearchResultsActivity"
+            android:label="Search" />
+        <activity
+            android:name="com.test.ahmedorabi.movieapp.view.ui.DisplayImage"
+            android:label="Save Image"
+            android:theme="@style/AppTheme.NoActionBarDisplayImage" />
+        <activity
+            android:name="com.test.ahmedorabi.movieapp.view.ui.DisplayPosterActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.test.ahmedorabi.movieapp.view.ui.SeasonsActivity"
+            android:label="Seasons" />
+        <activity android:name="com.test.ahmedorabi.movieapp.view.ui.SeasonDeatail" />
+
+        <activity
+            android:name="com.test.ahmedorabi.movieapp.view.ui.EpisodeDetailActivity"
+            android:theme="@style/AppTheme.NoActionBarDisplayImage" />
+    </application>
+
+</manifest>

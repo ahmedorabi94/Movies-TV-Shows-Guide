@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="callback"
+            type="com.test.ahmedorabi.movieapp.view.callback.SearchCallback" />
+
+        <variable
+            name="movieItem"
+            type="com.test.ahmedorabi.movieapp.model.appModels.searchModel.Result" />
+
+
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:layout_marginBottom="5dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="@drawable/ripple"
+        android:onClick="@{() -> callback.onSearchClick(movieItem)}"
+        app:cardBackgroundColor="@color/colorPrimaryDark">
+
+        <LinearLayout
+            android:id="@+id/layout_movieRow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusableInTouchMode="true"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/image_row_item"
+                android:layout_width="100dp"
+                android:layout_height="120dp"
+                android:contentDescription="@string/movie_row_image"
+                android:scaleType="center" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="10dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/title_row"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:textColor="@android:color/white"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <RatingBar
+                    android:id="@+id/ratingba_rowr"
+                    style="@style/Widget.AppCompat.RatingBar.Small"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:numStars="5"
+                    app:voteAverage="@{movieItem.mVoteAverage}"
+
+
+                    />
+
+                <TextView
+                    android:id="@+id/overview_row"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:ellipsize="end"
+                    android:maxLines="4"
+                    android:textColor="@android:color/white"
+                    android:textSize="12sp" />
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+
+</layout>
+
