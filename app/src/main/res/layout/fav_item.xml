@@ -7,7 +7,7 @@
 
         <variable
             name="FavItem"
-            type="com.test.ahmedorabi.movieapp.model.dbroom.Movie" />
+            type="com.test.ahmedorabi.movieapp.repository.db.Movie" />
 
         <variable
             name="callback"

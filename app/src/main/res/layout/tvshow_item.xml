@@ -7,7 +7,7 @@
     <data>
         <variable
             name="TVItem"
-            type="com.test.ahmedorabi.movieapp.model.appModels.tvModel.Result"/>
+            type="com.test.ahmedorabi.movieapp.repository.data.tvModel.Result"/>
 
         <variable
             name="callBack"

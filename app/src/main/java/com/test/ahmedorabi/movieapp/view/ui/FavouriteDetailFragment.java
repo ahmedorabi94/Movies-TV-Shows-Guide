@@ -10,7 +10,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
-import android.util.Log;
 import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -34,10 +33,10 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.bumptech.glide.Glide;
 import com.test.ahmedorabi.movieapp.R;
+import com.test.ahmedorabi.movieapp.api.Status;
 import com.test.ahmedorabi.movieapp.databinding.FragmentDetailActivityBinding;
 import com.test.ahmedorabi.movieapp.di.Injectable;
 import com.test.ahmedorabi.movieapp.repository.data.MovieType;
-import com.test.ahmedorabi.movieapp.api.Status;
 import com.test.ahmedorabi.movieapp.repository.data.TvGenresResponse.Network;
 import com.test.ahmedorabi.movieapp.repository.data.backdropsModel.Backdrop;
 import com.test.ahmedorabi.movieapp.repository.data.creditsModel.Cast;
@@ -74,8 +73,8 @@ public class FavouriteDetailFragment extends Fragment implements Injectable {
         i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(i);
     };
-    String year;
-    String seasons;
+    private String year;
+    private String seasons;
     FragmentDetailActivityBinding binding;
     @Inject
     ViewModelProvider.Factory viewModelFactory;
@@ -95,14 +94,14 @@ public class FavouriteDetailFragment extends Fragment implements Injectable {
     private List<Cast> castList;
     private SimilarMovieAdapter similarMovieAdapter;
     private FavDetailFragmentListener mListener;
-    public CastCallback castCallback = new CastCallback() {
+    private CastCallback castCallback = new CastCallback() {
         @Override
         public void onActorClick(int id, String name) {
             mListener.onFavDetailActorFinish(id, name);
 
         }
     };
-    public SimilarMovieCallback movieCallback = new SimilarMovieCallback() {
+    private SimilarMovieCallback movieCallback = new SimilarMovieCallback() {
         @Override
         public void onClickSimilarMovie(com.test.ahmedorabi.movieapp.repository.data.similar.Result item) {
             mListener.onSimilarFavFragmentFinish(item.getId(), item.getTitle(), item.getPosterPath(), item.getOverview(), item.getReleaseDate(),
@@ -110,7 +109,7 @@ public class FavouriteDetailFragment extends Fragment implements Injectable {
 
         }
     };
-    public SimilarTVCallback tvCallback = item -> mListener.onSimilarFavFragmentFinish(item.getId(), item.getName(), item.getPosterPath(), item.getOverview(), item.getFirstAirDate(),
+    private SimilarTVCallback tvCallback = item -> mListener.onSimilarFavFragmentFinish(item.getId(), item.getName(), item.getPosterPath(), item.getOverview(), item.getFirstAirDate(),
             item.getVoteAverage(), item.getBackdropPath(), item.getOriginalLanguage(), "tv", item.getVoteCount());
     private List<com.test.ahmedorabi.movieapp.repository.data.similar.Result> similarList;
     private List<com.test.ahmedorabi.movieapp.repository.data.similarTvModel.Result> similarTvList;
@@ -133,7 +132,7 @@ public class FavouriteDetailFragment extends Fragment implements Injectable {
     }
 
 
-    @SuppressLint({"Recycle", "SetTextI18n"})
+    @SuppressLint("SetTextI18n")
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -324,7 +323,6 @@ public class FavouriteDetailFragment extends Fragment implements Injectable {
                 if (title.equals(movie.getTitle())) {
                     binding.likeFab.setImageResource(R.drawable.ic_heart_white_48dp);
                     isFav = true;
-                    Log.e("detail", "sate " + isFav);
                     break;
                 }
             }

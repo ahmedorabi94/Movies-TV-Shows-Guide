@@ -25,13 +25,11 @@ public abstract class NetworkBoundResource<ResultType, RequestType> {
 
         result.addSource(apiResponse, response -> {
 
-            if (response instanceof ApiSuccessResponse) {
-                setValue(Resource.success(((ApiSuccessResponse<ResultType>) response).getBody()));
-            }
+            if (response.isSuccessful()){
+                setValue(Resource.success(((ApiResponse<ResultType>)response).body));
 
-            if (response instanceof ApiErrorResponse) {
-                onFetchFailed();
-                setValue(Resource.error(((ApiErrorResponse<ResultType>) response).getErrorMessage(), null));
+            }else {
+                setValue(Resource.error(response.errorMessage,null));
             }
 
 

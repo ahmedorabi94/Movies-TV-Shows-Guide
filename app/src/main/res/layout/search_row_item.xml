@@ -11,7 +11,7 @@
 
         <variable
             name="movieItem"
-            type="com.test.ahmedorabi.movieapp.model.appModels.searchModel.Result" />
+            type="com.test.ahmedorabi.movieapp.repository.data.searchModel.Result" />
 
 
     </data>

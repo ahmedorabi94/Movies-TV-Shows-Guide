@@ -10,7 +10,7 @@
 
         <variable
             name="item"
-            type="com.test.ahmedorabi.movieapp.model.appModels.similarTvModel.Result"/>
+            type="com.test.ahmedorabi.movieapp.repository.data.similarTvModel.Result"/>
 
     </data>
 

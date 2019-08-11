@@ -9,7 +9,7 @@
 
         <variable
             name="episodeItem"
-            type="com.test.ahmedorabi.movieapp.model.appModels.seasonResponse.Episode" />
+            type="com.test.ahmedorabi.movieapp.repository.data.seasonResponse.Episode" />
 
         <variable
             name="callback"

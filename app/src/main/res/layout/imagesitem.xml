@@ -10,7 +10,7 @@
 
         <variable
             name="imageItem"
-            type="com.test.ahmedorabi.movieapp.model.appModels.imagesResponse.Still" />
+            type="com.test.ahmedorabi.movieapp.repository.data.imagesResponse.Still" />
     </data>
 
     <ImageView

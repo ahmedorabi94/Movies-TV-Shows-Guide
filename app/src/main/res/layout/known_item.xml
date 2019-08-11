@@ -6,7 +6,7 @@
     <data>
         <variable
             name="castItem"
-            type="com.test.ahmedorabi.movieapp.model.appModels.knownResponse.Cast"/>
+            type="com.test.ahmedorabi.movieapp.repository.data.knownResponse.Cast"/>
 
         <variable
             name="callback"

@@ -104,14 +104,14 @@ public class DetailActivityFragment extends Fragment implements Injectable {
     private boolean isFav = false;
 
 
-    public CastCallback castCallback = new CastCallback() {
+    private CastCallback castCallback = new CastCallback() {
         @Override
         public void onActorClick(int id, String name) {
             mListener.onDetailActorFinish(id, name);
 
         }
     };
-    public SimilarMovieCallback movieCallback = new SimilarMovieCallback() {
+    private SimilarMovieCallback movieCallback = new SimilarMovieCallback() {
         @Override
         public void onClickSimilarMovie(com.test.ahmedorabi.movieapp.repository.data.similar.Result item) {
             mListener.onSimilarFragmentFinish(item.getId(), item.getTitle(), item.getPosterPath(), item.getOverview(), item.getReleaseDate(),
@@ -119,7 +119,7 @@ public class DetailActivityFragment extends Fragment implements Injectable {
 
         }
     };
-    public SimilarTVCallback tvCallback = item -> mListener.onSimilarFragmentFinish(item.getId(), item.getName(), item.getPosterPath(), item.getOverview(), item.getFirstAirDate(),
+    private SimilarTVCallback tvCallback = item -> mListener.onSimilarFragmentFinish(item.getId(), item.getName(), item.getPosterPath(), item.getOverview(), item.getFirstAirDate(),
             item.getVoteAverage(), item.getBackdropPath(), item.getOriginalLanguage(), "tv", item.getVoteCount());
     private List<com.test.ahmedorabi.movieapp.repository.data.similar.Result> similarList;
     private List<com.test.ahmedorabi.movieapp.repository.data.similarTvModel.Result> similarTvList;
