@@ -2,7 +2,7 @@ package com.test.ahmedorabi.movieapp.util;
 
 import androidx.lifecycle.LiveData;
 
-import com.test.ahmedorabi.movieapp.model.api.ApiResponse;
+import com.test.ahmedorabi.movieapp.api.ApiResponse;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.ParameterizedType;

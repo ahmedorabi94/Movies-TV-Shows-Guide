@@ -22,7 +22,7 @@ import android.widget.Toast;
 import com.test.ahmedorabi.movieapp.R;
 import com.test.ahmedorabi.movieapp.databinding.FragmentTvshowFragemntBinding;
 import com.test.ahmedorabi.movieapp.di.Injectable;
-import com.test.ahmedorabi.movieapp.model.api.Status;
+import com.test.ahmedorabi.movieapp.api.Status;
 import com.test.ahmedorabi.movieapp.view.adapter.TVAdapter;
 import com.test.ahmedorabi.movieapp.view.callback.TVCallBack;
 import com.test.ahmedorabi.movieapp.viewmodel.TVFragmentViewModel;
@@ -35,7 +35,7 @@ import javax.inject.Inject;
 public class TVShowFragemnt extends Fragment implements Injectable {
 
 
-    public static final String TV_VALUE = "tv";
+    static final String TV_VALUE = "tv";
     @Inject
     ViewModelProvider.Factory viewModelFactory;
     private FragmentTvshowFragemntBinding binding;
@@ -45,7 +45,7 @@ public class TVShowFragemnt extends Fragment implements Injectable {
     private TvFragmentListener mFragmentListener;
     private final TVCallBack callBack = new TVCallBack() {
         @Override
-        public void onClickTVSHow(com.test.ahmedorabi.movieapp.model.appModels.tvModel.Result item) {
+        public void onClickTVSHow(com.test.ahmedorabi.movieapp.repository.data.tvModel.Result item) {
             mFragmentListener.onFragmentFinish(item.getId(), item.getName(), item.getPosterPath(), item.getOverview(), item.getFirstAirDate(),
                     item.getVoteAverage(), item.getBackdropPath(), item.getOriginalLanguage(), TV_VALUE, item.getVoteCount());
 
@@ -68,13 +68,11 @@ public class TVShowFragemnt extends Fragment implements Injectable {
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_tvshow_fragemnt, container, false);
 
         InitViews();
 
         return binding.getRoot();
-
 
     }
 
@@ -131,7 +129,6 @@ public class TVShowFragemnt extends Fragment implements Injectable {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         TVFragmentViewModel viewModel = ViewModelProviders.of(this, viewModelFactory).get(TVFragmentViewModel.class);
-
         checkInternet(viewModel);
     }
 
@@ -144,9 +141,7 @@ public class TVShowFragemnt extends Fragment implements Injectable {
             observeViewModel(viewModel);
 
         } else {
-
             binding.setIsConnected(false);
-
 
         }
     }

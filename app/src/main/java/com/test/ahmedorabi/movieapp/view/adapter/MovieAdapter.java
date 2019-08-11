@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 
 import com.test.ahmedorabi.movieapp.R;
 import com.test.ahmedorabi.movieapp.databinding.GridViewItemBinding;
-import com.test.ahmedorabi.movieapp.model.appModels.moviemodel.Result;
+import com.test.ahmedorabi.movieapp.repository.data.moviemodel.Result;
 import com.test.ahmedorabi.movieapp.view.callback.MovieCallback;
 
 import java.util.List;

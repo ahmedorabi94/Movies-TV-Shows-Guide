@@ -5,9 +5,9 @@ import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.annotation.NonNull;
 
-import com.test.ahmedorabi.movieapp.model.api.Resource;
-import com.test.ahmedorabi.movieapp.model.repository.TVFragmentService;
-import com.test.ahmedorabi.movieapp.model.appModels.tvModel.TvModel;
+import com.test.ahmedorabi.movieapp.api.Resource;
+import com.test.ahmedorabi.movieapp.repository.TVFragmentRepository;
+import com.test.ahmedorabi.movieapp.repository.data.tvModel.TvModel;
 
 import javax.inject.Inject;
 
@@ -25,16 +25,16 @@ public class TVFragmentViewModel extends AndroidViewModel {
 
 
     @Inject
-    public TVFragmentViewModel(TVFragmentService service , @NonNull Application application) {
+    public TVFragmentViewModel(TVFragmentRepository repository , @NonNull Application application) {
         super(application);
-        TopActionTvObservable = service.getTopActionTv();
-        TopComedyTvObservable = service.getTopComedyTv();
-        TopRatedTvObservable = service.getTopRatedTv();
-        TopPopularTvObservable = service.getPopularTv();
-        OnTheAirTvObservable = service.getOnTheAirTv();
-        AiringTodayTvObservable = service.getAiringTodayTv();
-        TopCrimeTvObservable = service.getTopCrimeTv();
-        TopWarTvObservable = service.getTopWarTv();
+        TopActionTvObservable = repository.getTopActionTv();
+        TopComedyTvObservable = repository.getTopComedyTv();
+        TopRatedTvObservable = repository.getTopRatedTv();
+        TopPopularTvObservable = repository.getPopularTv();
+        OnTheAirTvObservable = repository.getOnTheAirTv();
+        AiringTodayTvObservable = repository.getAiringTodayTv();
+        TopCrimeTvObservable = repository.getTopCrimeTv();
+        TopWarTvObservable = repository.getTopWarTv();
     }
 
     public LiveData<Resource<TvModel>> getTopPopularTvObservable() {

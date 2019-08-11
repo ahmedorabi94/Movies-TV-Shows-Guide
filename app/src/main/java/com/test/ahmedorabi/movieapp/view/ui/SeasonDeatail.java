@@ -10,9 +10,9 @@ import android.widget.Toast;
 
 import com.test.ahmedorabi.movieapp.R;
 import com.test.ahmedorabi.movieapp.databinding.ActivitySeasonDeatailBinding;
-import com.test.ahmedorabi.movieapp.model.TVType;
-import com.test.ahmedorabi.movieapp.model.api.Status;
-import com.test.ahmedorabi.movieapp.model.appModels.seasonResponse.Episode;
+import com.test.ahmedorabi.movieapp.repository.data.TVType;
+import com.test.ahmedorabi.movieapp.api.Status;
+import com.test.ahmedorabi.movieapp.repository.data.seasonResponse.Episode;
 import com.test.ahmedorabi.movieapp.view.adapter.EpisodeAdapter;
 import com.test.ahmedorabi.movieapp.view.callback.EpisodeCallback;
 import com.test.ahmedorabi.movieapp.viewmodel.EpisodeDetailViewModel;

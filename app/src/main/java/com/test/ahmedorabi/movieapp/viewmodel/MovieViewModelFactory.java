@@ -21,7 +21,6 @@ public class MovieViewModelFactory implements ViewModelProvider.Factory {
         this.mCreators = creators;
     }
 
-
     @NonNull
     @Override
     public <T extends ViewModel> T create(@NonNull Class<T> modelClass) {

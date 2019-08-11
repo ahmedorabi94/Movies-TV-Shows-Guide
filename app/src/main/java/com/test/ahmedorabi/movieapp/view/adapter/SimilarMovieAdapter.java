@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 
 import com.test.ahmedorabi.movieapp.R;
 import com.test.ahmedorabi.movieapp.databinding.SimilarMovieItemBinding;
-import com.test.ahmedorabi.movieapp.model.appModels.similar.Result;
+import com.test.ahmedorabi.movieapp.repository.data.similar.Result;
 import com.test.ahmedorabi.movieapp.view.callback.SimilarMovieCallback;
 
 import java.util.List;

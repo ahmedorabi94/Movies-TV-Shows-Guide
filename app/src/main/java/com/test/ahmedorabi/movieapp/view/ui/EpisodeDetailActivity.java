@@ -14,9 +14,9 @@ import android.widget.Toast;
 
 import com.test.ahmedorabi.movieapp.R;
 import com.test.ahmedorabi.movieapp.databinding.ActivityEpisodeDetailBinding;
-import com.test.ahmedorabi.movieapp.model.TVType;
-import com.test.ahmedorabi.movieapp.model.api.Status;
-import com.test.ahmedorabi.movieapp.model.appModels.imagesResponse.Still;
+import com.test.ahmedorabi.movieapp.repository.data.TVType;
+import com.test.ahmedorabi.movieapp.api.Status;
+import com.test.ahmedorabi.movieapp.repository.data.imagesResponse.Still;
 import com.test.ahmedorabi.movieapp.view.adapter.ImageAdapter;
 import com.test.ahmedorabi.movieapp.view.callback.EpisodeImageCallback;
 import com.test.ahmedorabi.movieapp.viewmodel.EpisodeDetailViewModel;

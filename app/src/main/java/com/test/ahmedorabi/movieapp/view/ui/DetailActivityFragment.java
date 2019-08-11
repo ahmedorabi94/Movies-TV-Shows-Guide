@@ -36,17 +36,17 @@ import com.bumptech.glide.Glide;
 import com.test.ahmedorabi.movieapp.R;
 import com.test.ahmedorabi.movieapp.databinding.FragmentDetailActivityBinding;
 import com.test.ahmedorabi.movieapp.di.Injectable;
-import com.test.ahmedorabi.movieapp.model.MovieType;
-import com.test.ahmedorabi.movieapp.model.api.Status;
-import com.test.ahmedorabi.movieapp.model.appModels.TvGenresResponse.Network;
-import com.test.ahmedorabi.movieapp.model.appModels.backdropsModel.Backdrop;
-import com.test.ahmedorabi.movieapp.model.appModels.creditsModel.Cast;
-import com.test.ahmedorabi.movieapp.model.appModels.creditsModel.Crew;
-import com.test.ahmedorabi.movieapp.model.appModels.genresmodel.Genre;
-import com.test.ahmedorabi.movieapp.model.appModels.genresmodel.SpokenLanguage;
-import com.test.ahmedorabi.movieapp.model.appModels.reviewModel.Result;
-import com.test.ahmedorabi.movieapp.model.appModels.trailermodel.TrailerResult;
-import com.test.ahmedorabi.movieapp.model.dbroom.Movie;
+import com.test.ahmedorabi.movieapp.repository.data.MovieType;
+import com.test.ahmedorabi.movieapp.api.Status;
+import com.test.ahmedorabi.movieapp.repository.data.TvGenresResponse.Network;
+import com.test.ahmedorabi.movieapp.repository.data.backdropsModel.Backdrop;
+import com.test.ahmedorabi.movieapp.repository.data.creditsModel.Cast;
+import com.test.ahmedorabi.movieapp.repository.data.creditsModel.Crew;
+import com.test.ahmedorabi.movieapp.repository.data.genresmodel.Genre;
+import com.test.ahmedorabi.movieapp.repository.data.genresmodel.SpokenLanguage;
+import com.test.ahmedorabi.movieapp.repository.data.reviewModel.Result;
+import com.test.ahmedorabi.movieapp.repository.data.trailermodel.TrailerResult;
+import com.test.ahmedorabi.movieapp.repository.db.Movie;
 import com.test.ahmedorabi.movieapp.view.adapter.MyRecyclerViewAdapter;
 import com.test.ahmedorabi.movieapp.view.adapter.MyRecyclerViewTrailerAdapter;
 import com.test.ahmedorabi.movieapp.view.adapter.SimilarMovieAdapter;
@@ -113,7 +113,7 @@ public class DetailActivityFragment extends Fragment implements Injectable {
     };
     public SimilarMovieCallback movieCallback = new SimilarMovieCallback() {
         @Override
-        public void onClickSimilarMovie(com.test.ahmedorabi.movieapp.model.appModels.similar.Result item) {
+        public void onClickSimilarMovie(com.test.ahmedorabi.movieapp.repository.data.similar.Result item) {
             mListener.onSimilarFragmentFinish(item.getId(), item.getTitle(), item.getPosterPath(), item.getOverview(), item.getReleaseDate(),
                     item.getVoteAverage(), item.getBackdropPath(), item.getOriginalLanguage(), "movie", item.getVoteCount());
 
@@ -121,8 +121,8 @@ public class DetailActivityFragment extends Fragment implements Injectable {
     };
     public SimilarTVCallback tvCallback = item -> mListener.onSimilarFragmentFinish(item.getId(), item.getName(), item.getPosterPath(), item.getOverview(), item.getFirstAirDate(),
             item.getVoteAverage(), item.getBackdropPath(), item.getOriginalLanguage(), "tv", item.getVoteCount());
-    private List<com.test.ahmedorabi.movieapp.model.appModels.similar.Result> similarList;
-    private List<com.test.ahmedorabi.movieapp.model.appModels.similarTvModel.Result> similarTvList;
+    private List<com.test.ahmedorabi.movieapp.repository.data.similar.Result> similarList;
+    private List<com.test.ahmedorabi.movieapp.repository.data.similarTvModel.Result> similarTvList;
     private SimilarTvAdapter tvAdapter;
 
 
@@ -587,7 +587,7 @@ public class DetailActivityFragment extends Fragment implements Injectable {
                     NetworkFailure();
 
                 } else {
-                    List<com.test.ahmedorabi.movieapp.model.appModels.TvGenresResponse.Genre> list = response.data.getGenres();
+                    List<com.test.ahmedorabi.movieapp.repository.data.TvGenresResponse.Genre> list = response.data.getGenres();
 
                     if (list.size() == 0) {
                         binding.genresTv.setText("no genres for this movie");

@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 
 import com.test.ahmedorabi.movieapp.R;
 import com.test.ahmedorabi.movieapp.databinding.FavItemBinding;
-import com.test.ahmedorabi.movieapp.model.dbroom.Movie;
+import com.test.ahmedorabi.movieapp.repository.db.Movie;
 import com.test.ahmedorabi.movieapp.view.callback.FavItemCallBack;
 
 import java.util.List;

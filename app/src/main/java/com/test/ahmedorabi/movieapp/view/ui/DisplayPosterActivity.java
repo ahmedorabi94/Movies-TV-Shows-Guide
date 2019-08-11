@@ -20,10 +20,10 @@ import android.widget.Toast;
 
 import com.test.ahmedorabi.movieapp.R;
 import com.test.ahmedorabi.movieapp.databinding.ActivityDisplayPosterBinding;
-import com.test.ahmedorabi.movieapp.model.MovieType;
-import com.test.ahmedorabi.movieapp.model.api.Status;
-import com.test.ahmedorabi.movieapp.model.appModels.ActorImages.Profile;
-import com.test.ahmedorabi.movieapp.model.appModels.backdropsModel.Poster;
+import com.test.ahmedorabi.movieapp.repository.data.MovieType;
+import com.test.ahmedorabi.movieapp.api.Status;
+import com.test.ahmedorabi.movieapp.repository.data.ActorImages.Profile;
+import com.test.ahmedorabi.movieapp.repository.data.backdropsModel.Poster;
 import com.test.ahmedorabi.movieapp.viewmodel.PosterViewModel;
 import com.bumptech.glide.Glide;
 
@@ -68,16 +68,11 @@ public class DisplayPosterActivity extends AppCompatActivity {
         observeViewModel(viewModel);
 
 
-
-
-
-
     }
 
 
 
     private void observeViewModel(PosterViewModel viewModel) {
-
 
         if (actorId != 0) {
             viewModel.getActorImages().observe(this, response -> {

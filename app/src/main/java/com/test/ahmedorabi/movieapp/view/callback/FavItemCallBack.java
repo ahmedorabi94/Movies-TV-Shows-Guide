@@ -1,6 +1,6 @@
 package com.test.ahmedorabi.movieapp.view.callback;
 
-import com.test.ahmedorabi.movieapp.model.dbroom.Movie;
+import com.test.ahmedorabi.movieapp.repository.db.Movie;
 
 public interface FavItemCallBack {
 

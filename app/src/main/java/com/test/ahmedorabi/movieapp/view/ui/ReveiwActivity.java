@@ -11,10 +11,10 @@ import android.widget.Toast;
 
 import com.test.ahmedorabi.movieapp.R;
 import com.test.ahmedorabi.movieapp.databinding.ActivityReveiwBinding;
-import com.test.ahmedorabi.movieapp.model.MovieType;
-import com.test.ahmedorabi.movieapp.model.api.Status;
-import com.test.ahmedorabi.movieapp.model.appModels.ReveiwItem;
-import com.test.ahmedorabi.movieapp.model.appModels.reviewModel.Result;
+import com.test.ahmedorabi.movieapp.repository.data.MovieType;
+import com.test.ahmedorabi.movieapp.api.Status;
+import com.test.ahmedorabi.movieapp.repository.data.ReveiwItem;
+import com.test.ahmedorabi.movieapp.repository.data.reviewModel.Result;
 import com.test.ahmedorabi.movieapp.view.adapter.ReviewAdapter;
 import com.test.ahmedorabi.movieapp.viewmodel.ReviewViewModel;
 
@@ -48,7 +48,6 @@ public class ReveiwActivity extends AppCompatActivity {
 
         final ReviewViewModel viewModel = ViewModelProviders.of(this, viewModelFactory).get(ReviewViewModel.class);
         viewModel.setMovieType(new MovieType(id_movie, type));
-
 
         observeReviews(viewModel);
 

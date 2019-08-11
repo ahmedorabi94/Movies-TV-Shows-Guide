@@ -8,22 +8,22 @@ import androidx.lifecycle.Transformations;
 import androidx.databinding.ObservableField;
 import androidx.annotation.NonNull;
 
-import com.test.ahmedorabi.movieapp.model.MovieType;
-import com.test.ahmedorabi.movieapp.model.api.Resource;
-import com.test.ahmedorabi.movieapp.model.appModels.IDResponse.IdResponse;
-import com.test.ahmedorabi.movieapp.model.appModels.RatingResponse.RatingResponse;
-import com.test.ahmedorabi.movieapp.model.appModels.TvGenresResponse.TvGenresResponse;
-import com.test.ahmedorabi.movieapp.model.appModels.TvRatingResponse.TvRatingResponse;
-import com.test.ahmedorabi.movieapp.model.appModels.backdropsModel.BackdropsModel;
-import com.test.ahmedorabi.movieapp.model.appModels.creditsModel.CreditsResponse;
-import com.test.ahmedorabi.movieapp.model.appModels.genresmodel.GenresResponse;
-import com.test.ahmedorabi.movieapp.model.appModels.reviewModel.Result;
-import com.test.ahmedorabi.movieapp.model.appModels.reviewModel.ReviewResponse;
-import com.test.ahmedorabi.movieapp.model.appModels.similar.SimilarResponse;
-import com.test.ahmedorabi.movieapp.model.appModels.similarTvModel.SimilarTvResponse;
-import com.test.ahmedorabi.movieapp.model.appModels.trailermodel.TrailerResponse;
-import com.test.ahmedorabi.movieapp.model.dbroom.Movie;
-import com.test.ahmedorabi.movieapp.model.repository.DetailActivityService;
+import com.test.ahmedorabi.movieapp.repository.data.MovieType;
+import com.test.ahmedorabi.movieapp.api.Resource;
+import com.test.ahmedorabi.movieapp.repository.data.IDResponse.IdResponse;
+import com.test.ahmedorabi.movieapp.repository.data.RatingResponse.RatingResponse;
+import com.test.ahmedorabi.movieapp.repository.data.TvGenresResponse.TvGenresResponse;
+import com.test.ahmedorabi.movieapp.repository.data.TvRatingResponse.TvRatingResponse;
+import com.test.ahmedorabi.movieapp.repository.data.backdropsModel.BackdropsModel;
+import com.test.ahmedorabi.movieapp.repository.data.creditsModel.CreditsResponse;
+import com.test.ahmedorabi.movieapp.repository.data.genresmodel.GenresResponse;
+import com.test.ahmedorabi.movieapp.repository.data.reviewModel.Result;
+import com.test.ahmedorabi.movieapp.repository.data.reviewModel.ReviewResponse;
+import com.test.ahmedorabi.movieapp.repository.data.similar.SimilarResponse;
+import com.test.ahmedorabi.movieapp.repository.data.similarTvModel.SimilarTvResponse;
+import com.test.ahmedorabi.movieapp.repository.data.trailermodel.TrailerResponse;
+import com.test.ahmedorabi.movieapp.repository.db.Movie;
+import com.test.ahmedorabi.movieapp.repository.DetailActivityService;
 
 import java.util.List;
 

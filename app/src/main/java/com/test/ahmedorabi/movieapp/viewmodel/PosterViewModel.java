@@ -7,11 +7,11 @@ import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.Transformations;
 import androidx.annotation.NonNull;
 
-import com.test.ahmedorabi.movieapp.model.MovieType;
-import com.test.ahmedorabi.movieapp.model.api.Resource;
-import com.test.ahmedorabi.movieapp.model.repository.PosterService;
-import com.test.ahmedorabi.movieapp.model.appModels.ActorImages.ActorImages;
-import com.test.ahmedorabi.movieapp.model.appModels.backdropsModel.BackdropsModel;
+import com.test.ahmedorabi.movieapp.repository.data.MovieType;
+import com.test.ahmedorabi.movieapp.api.Resource;
+import com.test.ahmedorabi.movieapp.repository.PosterRepository;
+import com.test.ahmedorabi.movieapp.repository.data.ActorImages.ActorImages;
+import com.test.ahmedorabi.movieapp.repository.data.backdropsModel.BackdropsModel;
 
 import javax.inject.Inject;
 
@@ -32,7 +32,7 @@ public class PosterViewModel extends AndroidViewModel {
 
 
     @Inject
-    public PosterViewModel(PosterService service, @NonNull Application application) {
+    public PosterViewModel(PosterRepository repository, @NonNull Application application) {
         super(application);
 
         this.movieType = new MutableLiveData<>();
@@ -42,7 +42,7 @@ public class PosterViewModel extends AndroidViewModel {
             if (input == null) {
                 return ABSENT;
             }
-            return service.getPersonImages(input.getmActorId());
+            return repository.getPersonImages(input.getmActorId());
         });
 
         backdrops = Transformations.switchMap(movieType, input -> {
@@ -50,7 +50,7 @@ public class PosterViewModel extends AndroidViewModel {
                 return ABSENT;
             }
 
-            return service.getBackdrop(input.getId(), input.getType());
+            return repository.getBackdrop(input.getId(), input.getType());
 
         });
 

@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 
 import com.test.ahmedorabi.movieapp.R;
 import com.test.ahmedorabi.movieapp.databinding.SimilarTvshowItemBinding;
-import com.test.ahmedorabi.movieapp.model.appModels.similarTvModel.Result;
+import com.test.ahmedorabi.movieapp.repository.data.similarTvModel.Result;
 import com.test.ahmedorabi.movieapp.view.callback.SimilarTVCallback;
 
 import java.util.List;

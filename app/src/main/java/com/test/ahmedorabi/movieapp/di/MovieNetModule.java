@@ -5,9 +5,9 @@ import android.app.Application;
 
 import androidx.room.Room;
 
-import com.test.ahmedorabi.movieapp.model.dbroom.MovieDao;
-import com.test.ahmedorabi.movieapp.model.dbroom.MovieDb;
-import com.test.ahmedorabi.movieapp.model.repository.ApiInterface;
+import com.test.ahmedorabi.movieapp.repository.db.MovieDao;
+import com.test.ahmedorabi.movieapp.repository.db.MovieDb;
+import com.test.ahmedorabi.movieapp.api.ApiInterface;
 import com.test.ahmedorabi.movieapp.util.LiveDataCallAdapterFactory;
 
 import javax.inject.Named;

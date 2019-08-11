@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 
 import com.test.ahmedorabi.movieapp.R;
 import com.test.ahmedorabi.movieapp.databinding.ImagesitemBinding;
-import com.test.ahmedorabi.movieapp.model.appModels.imagesResponse.Still;
+import com.test.ahmedorabi.movieapp.repository.data.imagesResponse.Still;
 import com.test.ahmedorabi.movieapp.view.callback.EpisodeImageCallback;
 
 import java.util.List;

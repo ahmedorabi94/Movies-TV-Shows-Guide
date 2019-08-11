@@ -18,8 +18,8 @@ import android.widget.Toast;
 
 import com.test.ahmedorabi.movieapp.R;
 import com.test.ahmedorabi.movieapp.databinding.ActivitySearchResultsBinding;
-import com.test.ahmedorabi.movieapp.model.api.Status;
-import com.test.ahmedorabi.movieapp.model.appModels.searchModel.Result;
+import com.test.ahmedorabi.movieapp.api.Status;
+import com.test.ahmedorabi.movieapp.repository.data.searchModel.Result;
 import com.test.ahmedorabi.movieapp.view.adapter.FilterMovieAdapter;
 import com.test.ahmedorabi.movieapp.view.callback.SearchCallback;
 import com.test.ahmedorabi.movieapp.viewmodel.SearchViewModel;

@@ -1,6 +1,6 @@
 package com.test.ahmedorabi.movieapp.view.callback;
 
-import com.test.ahmedorabi.movieapp.model.appModels.seasonResponse.Episode;
+import com.test.ahmedorabi.movieapp.repository.data.seasonResponse.Episode;
 
 public interface EpisodeCallback {
 

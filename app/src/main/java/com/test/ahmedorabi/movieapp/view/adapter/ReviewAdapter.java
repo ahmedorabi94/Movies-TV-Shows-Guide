@@ -11,7 +11,7 @@ import android.widget.ArrayAdapter;
 
 import com.test.ahmedorabi.movieapp.R;
 import com.test.ahmedorabi.movieapp.databinding.ReviewListItemBinding;
-import com.test.ahmedorabi.movieapp.model.appModels.ReveiwItem;
+import com.test.ahmedorabi.movieapp.repository.data.ReveiwItem;
 
 import java.util.ArrayList;
 

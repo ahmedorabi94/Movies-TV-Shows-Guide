@@ -16,8 +16,8 @@ import android.widget.Toast;
 
 import com.test.ahmedorabi.movieapp.R;
 import com.test.ahmedorabi.movieapp.databinding.ActivityActorDetailBinding;
-import com.test.ahmedorabi.movieapp.model.api.Status;
-import com.test.ahmedorabi.movieapp.model.appModels.knownResponse.Cast;
+import com.test.ahmedorabi.movieapp.api.Status;
+import com.test.ahmedorabi.movieapp.repository.data.knownResponse.Cast;
 import com.test.ahmedorabi.movieapp.view.adapter.GridViewAdapter;
 import com.test.ahmedorabi.movieapp.view.callback.KnownCallback;
 import com.test.ahmedorabi.movieapp.viewmodel.PersonViewModel;
@@ -77,7 +77,6 @@ public class ActorDetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_actor_detail);
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_actor_detail);
-
 
         initViews();
 

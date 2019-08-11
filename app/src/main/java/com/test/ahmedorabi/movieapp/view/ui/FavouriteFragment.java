@@ -1,6 +1,5 @@
 package com.test.ahmedorabi.movieapp.view.ui;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -19,7 +18,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.test.ahmedorabi.movieapp.R;
 import com.test.ahmedorabi.movieapp.databinding.FragmentFavouriteBinding;
 import com.test.ahmedorabi.movieapp.di.Injectable;
-import com.test.ahmedorabi.movieapp.model.dbroom.Movie;
+import com.test.ahmedorabi.movieapp.repository.db.Movie;
 import com.test.ahmedorabi.movieapp.view.adapter.FavAdapter;
 import com.test.ahmedorabi.movieapp.view.callback.FavItemCallBack;
 import com.test.ahmedorabi.movieapp.viewmodel.FavouriteViewModel;
@@ -33,7 +32,6 @@ public class FavouriteFragment extends Fragment implements Injectable {
     @Inject
     ViewModelProvider.Factory viewModelFactory;
     FavouriteViewModel viewModel;
-
 
     private FragmentListener mListener;
     public FavItemCallBack callBack = new FavItemCallBack() {
@@ -88,9 +86,7 @@ public class FavouriteFragment extends Fragment implements Injectable {
         recyclerView.addItemDecoration(new GridItemDecoration(6, 10));
     }
 
-    @SuppressLint("Recycle")
     private void checkFavMovie() {
-
 
         viewModel.getAllMovies().observe(this, movies -> {
 

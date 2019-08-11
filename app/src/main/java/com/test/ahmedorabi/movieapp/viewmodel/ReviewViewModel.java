@@ -7,10 +7,10 @@ import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.Transformations;
 import androidx.annotation.NonNull;
 
-import com.test.ahmedorabi.movieapp.model.MovieType;
-import com.test.ahmedorabi.movieapp.model.api.Resource;
-import com.test.ahmedorabi.movieapp.model.repository.ReviewService;
-import com.test.ahmedorabi.movieapp.model.appModels.reviewModel.ReviewResponse;
+import com.test.ahmedorabi.movieapp.repository.data.MovieType;
+import com.test.ahmedorabi.movieapp.api.Resource;
+import com.test.ahmedorabi.movieapp.repository.ReviewRepository;
+import com.test.ahmedorabi.movieapp.repository.data.reviewModel.ReviewResponse;
 
 import javax.inject.Inject;
 
@@ -28,7 +28,7 @@ public class ReviewViewModel extends AndroidViewModel {
 
 
     @Inject
-    public ReviewViewModel(ReviewService reviewService, @NonNull Application application) {
+    public ReviewViewModel(ReviewRepository repository, @NonNull Application application) {
         super(application);
 
         this.movieType = new MutableLiveData<>();
@@ -38,7 +38,7 @@ public class ReviewViewModel extends AndroidViewModel {
             if (input == null) {
                 return ABSENT;
             }
-            return reviewService.getReviews(input.getId(),input.getType());
+            return repository.getReviews(input.getId(),input.getType());
         });
 
 

@@ -12,7 +12,7 @@ import android.widget.ArrayAdapter;
 
 import com.test.ahmedorabi.movieapp.R;
 import com.test.ahmedorabi.movieapp.databinding.SeasonRowItemBinding;
-import com.test.ahmedorabi.movieapp.model.appModels.seasonResponse.Episode;
+import com.test.ahmedorabi.movieapp.repository.data.seasonResponse.Episode;
 import com.test.ahmedorabi.movieapp.view.callback.EpisodeCallback;
 
 import java.util.List;

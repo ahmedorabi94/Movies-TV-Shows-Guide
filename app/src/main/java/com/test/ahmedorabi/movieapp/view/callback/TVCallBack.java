@@ -1,6 +1,6 @@
 package com.test.ahmedorabi.movieapp.view.callback;
 
-import com.test.ahmedorabi.movieapp.model.appModels.tvModel.Result;
+import com.test.ahmedorabi.movieapp.repository.data.tvModel.Result;
 
 public interface TVCallBack {
 

@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 
 import com.test.ahmedorabi.movieapp.R;
 import com.test.ahmedorabi.movieapp.databinding.RecyclerViewItemBinding;
-import com.test.ahmedorabi.movieapp.model.appModels.creditsModel.Cast;
+import com.test.ahmedorabi.movieapp.repository.data.creditsModel.Cast;
 import com.test.ahmedorabi.movieapp.view.callback.CastCallback;
 
 import java.util.List;

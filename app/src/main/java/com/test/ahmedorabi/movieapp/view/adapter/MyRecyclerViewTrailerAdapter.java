@@ -8,7 +8,7 @@ import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
-import com.test.ahmedorabi.movieapp.model.appModels.trailermodel.TrailerResult;
+import com.test.ahmedorabi.movieapp.repository.data.trailermodel.TrailerResult;
 import com.bumptech.glide.Glide;
 import com.test.ahmedorabi.movieapp.R;
 import com.test.ahmedorabi.movieapp.databinding.RecyclerViewItemTrailerBinding;

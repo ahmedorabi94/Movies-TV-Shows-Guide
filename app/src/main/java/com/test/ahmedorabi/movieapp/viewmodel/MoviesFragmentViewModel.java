@@ -5,9 +5,9 @@ import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.annotation.NonNull;
 
-import com.test.ahmedorabi.movieapp.model.api.Resource;
-import com.test.ahmedorabi.movieapp.model.repository.MoviesFragmentService;
-import com.test.ahmedorabi.movieapp.model.appModels.moviemodel.MovieResponse;
+import com.test.ahmedorabi.movieapp.api.Resource;
+import com.test.ahmedorabi.movieapp.repository.MoviesFragmentRepository;
+import com.test.ahmedorabi.movieapp.repository.data.moviemodel.MovieResponse;
 
 import javax.inject.Inject;
 
@@ -27,16 +27,16 @@ public class MoviesFragmentViewModel extends AndroidViewModel {
 
 
     @Inject
-    public MoviesFragmentViewModel(MoviesFragmentService moviesService , @NonNull Application application) {
+    public MoviesFragmentViewModel(MoviesFragmentRepository repository , @NonNull Application application) {
         super(application);
 
-        NowPlayingObservable = moviesService.getNowPlaying();
-        TopRatedObservable = moviesService.getTopRatedMovies();
-        UpcomingObservable = moviesService.getUpcomingMovies();
-        PopularObservable = moviesService.getpopularMovies();
-        TopHorroObservable = moviesService.getTopRatedHorrorMovies();
-        TopActionObservable = moviesService.getTopRatedActionMovies();
-        TopRomanceObservable = moviesService.getTopRatedRomanceMovies();
+        NowPlayingObservable = repository.getNowPlaying();
+        TopRatedObservable = repository.getTopRatedMovies();
+        UpcomingObservable = repository.getUpcomingMovies();
+        PopularObservable = repository.getpopularMovies();
+        TopHorroObservable = repository.getTopRatedHorrorMovies();
+        TopActionObservable = repository.getTopRatedActionMovies();
+        TopRomanceObservable = repository.getTopRatedRomanceMovies();
     }
 
 

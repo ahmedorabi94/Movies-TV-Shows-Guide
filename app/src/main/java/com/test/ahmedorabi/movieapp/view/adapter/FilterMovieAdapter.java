@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 import com.bumptech.glide.Glide;
 import com.test.ahmedorabi.movieapp.R;
 import com.test.ahmedorabi.movieapp.databinding.SearchRowItemBinding;
-import com.test.ahmedorabi.movieapp.model.appModels.searchModel.Result;
+import com.test.ahmedorabi.movieapp.repository.data.searchModel.Result;
 import com.test.ahmedorabi.movieapp.view.callback.SearchCallback;
 
 import java.util.List;

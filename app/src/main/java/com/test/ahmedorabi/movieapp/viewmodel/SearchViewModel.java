@@ -7,9 +7,9 @@ import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.Transformations;
 import androidx.annotation.NonNull;
 
-import com.test.ahmedorabi.movieapp.model.api.Resource;
-import com.test.ahmedorabi.movieapp.model.repository.SearchService;
-import com.test.ahmedorabi.movieapp.model.appModels.searchModel.SearchResponse;
+import com.test.ahmedorabi.movieapp.api.Resource;
+import com.test.ahmedorabi.movieapp.repository.SearchRepository;
+import com.test.ahmedorabi.movieapp.repository.data.searchModel.SearchResponse;
 
 import javax.inject.Inject;
 
@@ -22,14 +22,13 @@ public class SearchViewModel extends AndroidViewModel {
         ABSENT.setValue(null);
     }
 
-
     private final LiveData<Resource<SearchResponse>> searchLiveData;
 
     private final MutableLiveData<String> query;
 
 
     @Inject
-    public SearchViewModel(SearchService searchService, @NonNull Application application) {
+    public SearchViewModel(SearchRepository repository, @NonNull Application application) {
         super(application);
 
         this.query = new MutableLiveData<>();
@@ -38,7 +37,7 @@ public class SearchViewModel extends AndroidViewModel {
             if (input.isEmpty()) {
                 return ABSENT;
             }
-            return searchService.getSearchResults(input);
+            return repository.getSearchResults(input);
         });
 
     }

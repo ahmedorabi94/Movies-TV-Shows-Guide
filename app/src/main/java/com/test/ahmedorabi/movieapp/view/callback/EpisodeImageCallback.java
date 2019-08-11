@@ -1,6 +1,6 @@
 package com.test.ahmedorabi.movieapp.view.callback;
 
-import com.test.ahmedorabi.movieapp.model.appModels.imagesResponse.Still;
+import com.test.ahmedorabi.movieapp.repository.data.imagesResponse.Still;
 
 public interface EpisodeImageCallback {
 

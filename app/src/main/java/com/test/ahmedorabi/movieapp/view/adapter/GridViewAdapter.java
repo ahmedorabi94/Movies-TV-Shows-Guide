@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 
 import com.test.ahmedorabi.movieapp.R;
 import com.test.ahmedorabi.movieapp.databinding.KnownItemBinding;
-import com.test.ahmedorabi.movieapp.model.appModels.knownResponse.Cast;
+import com.test.ahmedorabi.movieapp.repository.data.knownResponse.Cast;
 import com.test.ahmedorabi.movieapp.view.callback.KnownCallback;
 
 import java.util.List;

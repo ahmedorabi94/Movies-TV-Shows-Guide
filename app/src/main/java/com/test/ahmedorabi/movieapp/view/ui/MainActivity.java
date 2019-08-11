@@ -13,8 +13,8 @@ import android.widget.Toast;
 
 import com.test.ahmedorabi.movieapp.BuildConfig;
 import com.test.ahmedorabi.movieapp.R;
-import com.test.ahmedorabi.movieapp.model.api.Status;
-import com.test.ahmedorabi.movieapp.model.appModels.moviemodel.Result;
+import com.test.ahmedorabi.movieapp.api.Status;
+import com.test.ahmedorabi.movieapp.repository.data.moviemodel.Result;
 import com.test.ahmedorabi.movieapp.viewmodel.MoviesFragmentViewModel;
 
 import java.util.List;

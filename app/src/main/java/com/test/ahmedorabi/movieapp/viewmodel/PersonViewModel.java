@@ -8,10 +8,10 @@ import androidx.lifecycle.Transformations;
 import androidx.databinding.ObservableField;
 import androidx.annotation.NonNull;
 
-import com.test.ahmedorabi.movieapp.model.api.Resource;
-import com.test.ahmedorabi.movieapp.model.appModels.knownResponse.KnownResponse;
-import com.test.ahmedorabi.movieapp.model.appModels.personModel.PersonResponse;
-import com.test.ahmedorabi.movieapp.model.repository.PersonService;
+import com.test.ahmedorabi.movieapp.api.Resource;
+import com.test.ahmedorabi.movieapp.repository.data.knownResponse.KnownResponse;
+import com.test.ahmedorabi.movieapp.repository.data.personModel.PersonResponse;
+import com.test.ahmedorabi.movieapp.repository.PersonRepository;
 
 import javax.inject.Inject;
 
@@ -35,7 +35,7 @@ public class PersonViewModel extends AndroidViewModel {
 
 
     @Inject
-    public PersonViewModel(PersonService personService, @NonNull Application application) {
+    public PersonViewModel(PersonRepository repository, @NonNull Application application) {
         super(application);
 
         this.ID = new MutableLiveData<>();
@@ -45,7 +45,7 @@ public class PersonViewModel extends AndroidViewModel {
                 return ABSENT;
             }
 
-            return personService.getPerson(Integer.parseInt(input));
+            return repository.getPerson(Integer.parseInt(input));
         });
 
 
@@ -54,7 +54,7 @@ public class PersonViewModel extends AndroidViewModel {
                 return ABSENT;
             }
 
-            return personService.getKnownMovies(Integer.parseInt(input));
+            return repository.getKnownMovies(Integer.parseInt(input));
         });
 
 
@@ -62,8 +62,7 @@ public class PersonViewModel extends AndroidViewModel {
             if (input.isEmpty()) {
                 return ABSENT;
             }
-
-            return personService.getKnownTV(Integer.parseInt(input));
+            return repository.getKnownTV(Integer.parseInt(input));
         });
 
 

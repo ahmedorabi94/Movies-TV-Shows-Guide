@@ -1,17 +1,18 @@
 package com.test.ahmedorabi.movieapp.viewmodel;
 
 import android.app.Application;
+
+import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.Transformations;
-import androidx.annotation.NonNull;
 
-import com.test.ahmedorabi.movieapp.model.TVType;
-import com.test.ahmedorabi.movieapp.model.api.Resource;
-import com.test.ahmedorabi.movieapp.model.appModels.imagesResponse.ImagesResponse;
-import com.test.ahmedorabi.movieapp.model.appModels.seasonResponse.SeasonResponse;
-import com.test.ahmedorabi.movieapp.model.repository.EpisodeDetailService;
+import com.test.ahmedorabi.movieapp.repository.data.TVType;
+import com.test.ahmedorabi.movieapp.api.Resource;
+import com.test.ahmedorabi.movieapp.repository.data.imagesResponse.ImagesResponse;
+import com.test.ahmedorabi.movieapp.repository.data.seasonResponse.SeasonResponse;
+import com.test.ahmedorabi.movieapp.repository.EpisodeDetailRepository;
 
 import javax.inject.Inject;
 
@@ -30,9 +31,8 @@ public class EpisodeDetailViewModel extends AndroidViewModel {
 
 
     @Inject
-    public EpisodeDetailViewModel(EpisodeDetailService service, @NonNull Application application) {
+    public EpisodeDetailViewModel(EpisodeDetailRepository repository, @NonNull Application application) {
         super(application);
-
 
         this.tvType = new MutableLiveData<>();
 
@@ -42,7 +42,7 @@ public class EpisodeDetailViewModel extends AndroidViewModel {
                 return ABSENT;
             }
 
-            return service.getImages(input.getId(), input.getsNum(), input.geteNum());
+            return repository.getImages(input.getId(), input.getsNum(), input.geteNum());
 
         });
 
@@ -52,10 +52,9 @@ public class EpisodeDetailViewModel extends AndroidViewModel {
             if (input == null) {
                 return ABSENT;
             }
-            return service.getSeason(input.getId(), input.getsNum());
+            return repository.getSeason(input.getId(), input.getsNum());
 
         });
-
 
     }
 

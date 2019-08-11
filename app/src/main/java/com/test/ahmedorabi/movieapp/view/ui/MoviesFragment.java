@@ -20,8 +20,8 @@ import android.widget.Toast;
 import com.test.ahmedorabi.movieapp.R;
 import com.test.ahmedorabi.movieapp.databinding.FragmentMoviesBinding;
 import com.test.ahmedorabi.movieapp.di.Injectable;
-import com.test.ahmedorabi.movieapp.model.api.Status;
-import com.test.ahmedorabi.movieapp.model.appModels.moviemodel.Result;
+import com.test.ahmedorabi.movieapp.api.Status;
+import com.test.ahmedorabi.movieapp.repository.data.moviemodel.Result;
 import com.test.ahmedorabi.movieapp.view.adapter.MovieAdapter;
 import com.test.ahmedorabi.movieapp.view.callback.MovieCallback;
 import com.test.ahmedorabi.movieapp.viewmodel.MoviesFragmentViewModel;
@@ -137,9 +137,7 @@ public class MoviesFragment extends Fragment implements Injectable {
             observeViewModel(viewModel);
 
         } else {
-
             binding.setIsConnected(false);
-
 
         }
     }
