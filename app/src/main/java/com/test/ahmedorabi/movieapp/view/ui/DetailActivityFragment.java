@@ -1,7 +1,6 @@
 package com.test.ahmedorabi.movieapp.view.ui;
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -9,9 +8,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.DisplayMetrics;
 import android.util.Log;
-import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,10 +31,10 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.bumptech.glide.Glide;
 import com.test.ahmedorabi.movieapp.R;
+import com.test.ahmedorabi.movieapp.api.Status;
 import com.test.ahmedorabi.movieapp.databinding.FragmentDetailActivityBinding;
 import com.test.ahmedorabi.movieapp.di.Injectable;
 import com.test.ahmedorabi.movieapp.repository.data.MovieType;
-import com.test.ahmedorabi.movieapp.api.Status;
 import com.test.ahmedorabi.movieapp.repository.data.TvGenresResponse.Network;
 import com.test.ahmedorabi.movieapp.repository.data.backdropsModel.Backdrop;
 import com.test.ahmedorabi.movieapp.repository.data.creditsModel.Cast;
@@ -47,6 +44,7 @@ import com.test.ahmedorabi.movieapp.repository.data.genresmodel.SpokenLanguage;
 import com.test.ahmedorabi.movieapp.repository.data.reviewModel.Result;
 import com.test.ahmedorabi.movieapp.repository.data.trailermodel.TrailerResult;
 import com.test.ahmedorabi.movieapp.repository.db.Movie;
+import com.test.ahmedorabi.movieapp.util.AppUtil;
 import com.test.ahmedorabi.movieapp.view.adapter.MyRecyclerViewAdapter;
 import com.test.ahmedorabi.movieapp.view.adapter.MyRecyclerViewTrailerAdapter;
 import com.test.ahmedorabi.movieapp.view.adapter.SimilarMovieAdapter;
@@ -57,11 +55,7 @@ import com.test.ahmedorabi.movieapp.view.callback.SimilarTVCallback;
 import com.test.ahmedorabi.movieapp.view.callback.TrailerCallBack;
 import com.test.ahmedorabi.movieapp.viewmodel.DetailActivityViewModel;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
-import java.util.Locale;
 import java.util.Objects;
 
 import javax.inject.Inject;
@@ -331,7 +325,7 @@ public class DetailActivityFragment extends Fragment implements Injectable {
 
             if (!isFav) {
                 binding.likeFab.setImageResource(R.drawable.ic_heart_white_48dp);
-                Movie movie = new Movie(String.valueOf(id_movie) , title, imageurl, overview, release_date, vote_average + "", "", "", backdrop_path, type, language, voteCount + "");
+                Movie movie = new Movie(String.valueOf(id_movie), title, imageurl, overview, release_date, vote_average + "", "", "", backdrop_path, type, language, voteCount + "");
                 viewModel.insertMovie(movie);
                 Toast.makeText(getActivity(), "Added to your Watchlist", Toast.LENGTH_SHORT).show();
                 isFav = true;
@@ -350,7 +344,7 @@ public class DetailActivityFragment extends Fragment implements Injectable {
 
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            ScreanWidth(Objects.requireNonNull(getActivity()));
+            width = AppUtil.ScreanWidth(Objects.requireNonNull(getActivity()));
         }
 
 
@@ -409,7 +403,7 @@ public class DetailActivityFragment extends Fragment implements Injectable {
                 if (title.equals(movie.getTitle())) {
                     binding.likeFab.setImageResource(R.drawable.ic_heart_white_48dp);
                     isFav = true;
-                    Log.e("detail" , "sate " + isFav);
+                    Log.e("detail", "sate " + isFav);
                     break;
                 }
             }
@@ -472,7 +466,7 @@ public class DetailActivityFragment extends Fragment implements Injectable {
 
                         String releaseDate = response.data.getReleaseDate();
                         if (!TextUtils.isEmpty(releaseDate)) {
-                            String date = formatDate(releaseDate);
+                            String date = AppUtil.formatDate(releaseDate);
                             binding.releaseDateTv.setText("Release Date: " + date);
                         } else {
                             binding.releaseDateTv.setText("Release Date: " + "N/A");
@@ -635,7 +629,7 @@ public class DetailActivityFragment extends Fragment implements Injectable {
                         binding.releaseDateTv.setText("First Air Date: " + "N/A");
 
                     } else {
-                        String date = formatDate(firstAireDate);
+                        String date = AppUtil.formatDate(firstAireDate);
                         binding.releaseDateTv.setText("First Air Date: " + date);
 
                     }
@@ -645,7 +639,7 @@ public class DetailActivityFragment extends Fragment implements Injectable {
                         binding.productionCountryTv.setText("Last Air Date: " + "N/A");
 
                     } else {
-                        String lastDate = formatDate(lastAirDate);
+                        String lastDate = AppUtil.formatDate(lastAirDate);
                         binding.productionCountryTv.setText("Last Air Date: " + lastDate);
 
                     }
@@ -1121,26 +1115,6 @@ public class DetailActivityFragment extends Fragment implements Injectable {
 
     }
 
-    private String formatDate(String datestr) {
-        try {
-            SimpleDateFormat fmt = new SimpleDateFormat("yyyy-MM-dd", Locale.US);
-            Date date = fmt.parse(datestr);
-            SimpleDateFormat fmtOut = new SimpleDateFormat("MMM d, yyyy", Locale.US);
-            return fmtOut.format(date);
-        } catch (ParseException ignored) {
-
-        }
-
-        return "";
-    }
-
-    private void ScreanWidth(Activity activity) {
-        Display display = activity.getWindowManager().getDefaultDisplay();
-        DisplayMetrics displayMetrics = new DisplayMetrics();
-        display.getMetrics(displayMetrics);
-        float density = activity.getResources().getDisplayMetrics().density;
-        width = displayMetrics.widthPixels / density;
-    }
 
     public interface DetailFragmentListener {
         void onDetailFragmentFinish(int id_movie, String type);

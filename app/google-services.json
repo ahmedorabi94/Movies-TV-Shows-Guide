@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "221512819031",
+    "firebase_url": "https://my-moviestest.firebaseio.com",
+    "project_id": "my-moviestest",
+    "storage_bucket": "my-moviestest.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:221512819031:android:ad20e5536dfb6715",
+        "android_client_info": {
+          "package_name": "com.test.ahmedorabi.movieapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "221512819031-6bfjjr8d3k718a2e2aa1aln6eoq90u1u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBJkr5tizU4YhiiPF8dBprctNei8MdSAiM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "221512819031-6bfjjr8d3k718a2e2aa1aln6eoq90u1u.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

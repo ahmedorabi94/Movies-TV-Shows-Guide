@@ -1,7 +1,6 @@
 package com.test.ahmedorabi.movieapp.view.ui;
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -9,8 +8,6 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.DisplayMetrics;
-import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -46,6 +43,7 @@ import com.test.ahmedorabi.movieapp.repository.data.genresmodel.SpokenLanguage;
 import com.test.ahmedorabi.movieapp.repository.data.reviewModel.Result;
 import com.test.ahmedorabi.movieapp.repository.data.trailermodel.TrailerResult;
 import com.test.ahmedorabi.movieapp.repository.db.Movie;
+import com.test.ahmedorabi.movieapp.util.AppUtil;
 import com.test.ahmedorabi.movieapp.view.adapter.MyRecyclerViewAdapter;
 import com.test.ahmedorabi.movieapp.view.adapter.MyRecyclerViewTrailerAdapter;
 import com.test.ahmedorabi.movieapp.view.adapter.SimilarMovieAdapter;
@@ -56,11 +54,7 @@ import com.test.ahmedorabi.movieapp.view.callback.SimilarTVCallback;
 import com.test.ahmedorabi.movieapp.view.callback.TrailerCallBack;
 import com.test.ahmedorabi.movieapp.viewmodel.DetailActivityViewModel;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
-import java.util.Locale;
 import java.util.Objects;
 
 import javax.inject.Inject;
@@ -384,7 +378,7 @@ public class FavouriteDetailFragment extends Fragment implements Injectable {
 
                         String releaseDate = response.data.getReleaseDate();
                         if (!TextUtils.isEmpty(releaseDate)) {
-                            String date = formatDate(releaseDate);
+                            String date = AppUtil.formatDate(releaseDate);
                             binding.releaseDateTv.setText("Release Date: " + date);
                         } else {
                             binding.releaseDateTv.setText("Release Date: " + "N/A");
@@ -547,7 +541,7 @@ public class FavouriteDetailFragment extends Fragment implements Injectable {
                         binding.releaseDateTv.setText("First Air Date: " + "N/A");
 
                     } else {
-                        String date = formatDate(firstAireDate);
+                        String date = AppUtil.formatDate(firstAireDate);
                         binding.releaseDateTv.setText("First Air Date: " + date);
 
                     }
@@ -557,7 +551,7 @@ public class FavouriteDetailFragment extends Fragment implements Injectable {
                         binding.productionCountryTv.setText("Last Air Date: " + "N/A");
 
                     } else {
-                        String lastDate = formatDate(lastAirDate);
+                        String lastDate = AppUtil.formatDate(lastAirDate);
                         binding.productionCountryTv.setText("Last Air Date: " + lastDate);
 
                     }
@@ -1059,7 +1053,7 @@ public class FavouriteDetailFragment extends Fragment implements Injectable {
 
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            ScreanWidth(Objects.requireNonNull(getActivity()));
+            width = AppUtil.ScreanWidth(Objects.requireNonNull(getActivity()));
         }
 
 
@@ -1104,33 +1098,6 @@ public class FavouriteDetailFragment extends Fragment implements Injectable {
         recyclerView_trailer.setItemAnimator(new DefaultItemAnimator());
         recyclerView_trailer.addItemDecoration(new GridItemDecoration(12));
         recyclerView_trailer.setLayoutManager(new LinearLayoutManager(getActivity().getApplicationContext(), LinearLayoutManager.HORIZONTAL, false));
-
-
-    }
-
-    private String formatDate(String datestr) {
-        try {
-            SimpleDateFormat fmt = new SimpleDateFormat("yyyy-MM-dd", Locale.US);
-            Date date = fmt.parse(datestr);
-            SimpleDateFormat fmtOut = new SimpleDateFormat("MMM d, yyyy", Locale.US);
-            return fmtOut.format(date);
-        } catch (ParseException ignored) {
-
-        }
-
-        return "";
-    }
-
-    private void ScreanWidth(Activity activity) {
-
-
-        Display display = activity.getWindowManager().getDefaultDisplay();
-        DisplayMetrics displayMetrics = new DisplayMetrics();
-        display.getMetrics(displayMetrics);
-
-        float density = activity.getResources().getDisplayMetrics().density;
-
-        width = displayMetrics.widthPixels / density;
 
 
     }
