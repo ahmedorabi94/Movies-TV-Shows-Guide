@@ -8,22 +8,16 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.Transformations;
 
-import com.test.ahmedorabi.movieapp.repository.data.TVType;
 import com.test.ahmedorabi.movieapp.api.Resource;
+import com.test.ahmedorabi.movieapp.repository.EpisodeDetailRepository;
+import com.test.ahmedorabi.movieapp.repository.data.TVType;
 import com.test.ahmedorabi.movieapp.repository.data.imagesResponse.ImagesResponse;
 import com.test.ahmedorabi.movieapp.repository.data.seasonResponse.SeasonResponse;
-import com.test.ahmedorabi.movieapp.repository.EpisodeDetailRepository;
+import com.test.ahmedorabi.movieapp.util.AbsentLiveData;
 
 import javax.inject.Inject;
 
 public class EpisodeDetailViewModel extends AndroidViewModel {
-
-    private static final MutableLiveData ABSENT = new MutableLiveData();
-
-    static {
-        //noinspection unchecked
-        ABSENT.setValue(null);
-    }
 
     private final LiveData<Resource<ImagesResponse>> imagesResponseLiveData;
     private final LiveData<Resource<SeasonResponse>> seasonResponseLiveData;
@@ -39,20 +33,23 @@ public class EpisodeDetailViewModel extends AndroidViewModel {
         imagesResponseLiveData = Transformations.switchMap(tvType, input -> {
 
             if (input == null) {
-                return ABSENT;
+                return AbsentLiveData.create();
+            } else {
+                return repository.getImages(input.getId(), input.getsNum(), input.geteNum());
+
             }
 
-            return repository.getImages(input.getId(), input.getsNum(), input.geteNum());
 
         });
-
 
         seasonResponseLiveData = Transformations.switchMap(tvType, input -> {
 
             if (input == null) {
-                return ABSENT;
+                return AbsentLiveData.create();
+            } else {
+                return repository.getSeason(input.getId(), input.getsNum());
+
             }
-            return repository.getSeason(input.getId(), input.getsNum());
 
         });
 

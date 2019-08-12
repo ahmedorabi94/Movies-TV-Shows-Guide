@@ -11,17 +11,11 @@ import com.test.ahmedorabi.movieapp.repository.data.MovieType;
 import com.test.ahmedorabi.movieapp.api.Resource;
 import com.test.ahmedorabi.movieapp.repository.ReviewRepository;
 import com.test.ahmedorabi.movieapp.repository.data.reviewModel.ReviewResponse;
+import com.test.ahmedorabi.movieapp.util.AbsentLiveData;
 
 import javax.inject.Inject;
 
 public class ReviewViewModel extends AndroidViewModel {
-
-    private static final MutableLiveData ABSENT = new MutableLiveData();
-
-    static {
-        //noinspection unchecked
-        ABSENT.setValue(null);
-    }
 
     private final LiveData<Resource<ReviewResponse>> reviewResponseLiveData;
     private final MutableLiveData<MovieType> movieType;
@@ -33,12 +27,13 @@ public class ReviewViewModel extends AndroidViewModel {
 
         this.movieType = new MutableLiveData<>();
 
-
         reviewResponseLiveData = Transformations.switchMap(movieType, input -> {
             if (input == null) {
-                return ABSENT;
+                return AbsentLiveData.create();
+            }else {
+                return repository.getReviews(input.getId(),input.getType());
+
             }
-            return repository.getReviews(input.getId(),input.getType());
         });
 
 

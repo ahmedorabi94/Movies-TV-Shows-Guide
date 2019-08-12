@@ -1,16 +1,18 @@
 package com.test.ahmedorabi.movieapp.viewmodel;
 
 import android.app.Application;
+
+import androidx.annotation.NonNull;
+import androidx.databinding.ObservableField;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.Transformations;
-import androidx.databinding.ObservableField;
-import androidx.annotation.NonNull;
 
-import com.test.ahmedorabi.movieapp.repository.data.MovieType;
 import com.test.ahmedorabi.movieapp.api.Resource;
+import com.test.ahmedorabi.movieapp.repository.DetailActivityService;
 import com.test.ahmedorabi.movieapp.repository.data.IDResponse.IdResponse;
+import com.test.ahmedorabi.movieapp.repository.data.MovieType;
 import com.test.ahmedorabi.movieapp.repository.data.RatingResponse.RatingResponse;
 import com.test.ahmedorabi.movieapp.repository.data.TvGenresResponse.TvGenresResponse;
 import com.test.ahmedorabi.movieapp.repository.data.TvRatingResponse.TvRatingResponse;
@@ -23,7 +25,7 @@ import com.test.ahmedorabi.movieapp.repository.data.similar.SimilarResponse;
 import com.test.ahmedorabi.movieapp.repository.data.similarTvModel.SimilarTvResponse;
 import com.test.ahmedorabi.movieapp.repository.data.trailermodel.TrailerResponse;
 import com.test.ahmedorabi.movieapp.repository.db.Movie;
-import com.test.ahmedorabi.movieapp.repository.DetailActivityService;
+import com.test.ahmedorabi.movieapp.util.AbsentLiveData;
 
 import java.util.List;
 
@@ -31,14 +33,7 @@ import javax.inject.Inject;
 
 public class DetailActivityViewModel extends AndroidViewModel {
 
-    private static final MutableLiveData ABSENT = new MutableLiveData();
-
-    static {
-        //noinspection unchecked
-        ABSENT.setValue(null);
-    }
-
-    public final MutableLiveData<MovieType> movieType;
+    private final MutableLiveData<MovieType> movieType;
 
     private final LiveData<Resource<SimilarResponse>> similarResponseLiveData;
     private final LiveData<Resource<SimilarTvResponse>> tvResponseLiveData;
@@ -75,98 +70,107 @@ public class DetailActivityViewModel extends AndroidViewModel {
         allMovies = service.getAsLiveData();
 
         tvRatingResponseLiveData = Transformations.switchMap(mImdb, input -> {
-            if (input.isEmpty()) {
-                return ABSENT;
+            if (input == null) {
+                return AbsentLiveData.create();
+            } else {
+                return service.getRatingTv(input);
             }
-            return service.getRatingTv(input);
         });
 
         ratingResponseLiveData = Transformations.switchMap(mImdb, input -> {
-            if (input.isEmpty()) {
-                return ABSENT;
+            if (input == null) {
+                return AbsentLiveData.create();
+            } else {
+                return service.getRatingsMovies(input);
             }
-            return service.getRatingsMovies(input);
         });
 
 
         idsLiveData = Transformations.switchMap(movieType, input -> {
 
             if (input == null) {
-                return ABSENT;
+                return AbsentLiveData.create();
+            } else {
+                return service.getIDS(input.getId(), input.getType());
             }
-            return service.getIDS(input.getId(), input.getType());
         });
 
 
         similarResponseLiveData = Transformations.switchMap(movieType, input -> {
             if (input == null) {
-                return ABSENT;
-            }
+                return AbsentLiveData.create();
+            } else {
+                return service.getSimilarMovies(input.getId());
 
-            return service.getSimilarMovies(input.getId());
+            }
 
         });
 
 
         tvResponseLiveData = Transformations.switchMap(movieType, input -> {
             if (input == null) {
-                return ABSENT;
+                return AbsentLiveData.create();
+            } else {
+                return service.getSimilarTV(input.getId());
             }
-            return service.getSimilarTV(input.getId());
         });
 
 
         moviesGenresObservable = Transformations.switchMap(movieType, input -> {
             if (input == null) {
-                return ABSENT;
+                return AbsentLiveData.create();
+            } else {
+                return service.getMoviesGenres(input.getId());
             }
-            return service.getMoviesGenres(input.getId());
         });
 
 
         tvGenresObservable = Transformations.switchMap(movieType, input -> {
             if (input == null) {
-                return ABSENT;
+                return AbsentLiveData.create();
+            } else {
+                return service.getTVGenres(input.getId());
             }
-            return service.getTVGenres(input.getId());
         });
 
 
         reviewResponseLiveData = Transformations.switchMap(movieType, input -> {
 
             if (input == null) {
-                return ABSENT;
+                return AbsentLiveData.create();
+            } else {
+                return service.getReviews(input.getId(), input.getType());
             }
 
-            return service.getReviews(input.getId(), input.getType());
         });
 
 
         backdropsObservable = Transformations.switchMap(movieType, input -> {
             if (input == null) {
-                return ABSENT;
-            }
+                return AbsentLiveData.create();
+            } else {
+                return service.getBackdrops(input.getId(), input.getType());
 
-            return service.getBackdrops(input.getId(), input.getType());
+            }
 
         });
 
         castObservable = Transformations.switchMap(movieType, input -> {
             if (input == null) {
-                return ABSENT;
+                return AbsentLiveData.create();
+            } else {
+                return service.getCast(input.getId(), input.getType());
             }
-
-            return service.getCast(input.getId(), input.getType());
 
         });
 
         trailerObservable = Transformations.switchMap(movieType, input -> {
             if (input == null) {
-                return ABSENT;
+                return AbsentLiveData.create();
+            } else {
+                return service.getTrailers(input.getId(), input.getType());
+
             }
-
-            return service.getTrailers(input.getId(), input.getType());
-
         });
 
     }
@@ -226,11 +230,11 @@ public class DetailActivityViewModel extends AndroidViewModel {
     }
 
 
-    public void insertMovie(Movie movie){
+    public void insertMovie(Movie movie) {
         repo.insertMovie(movie);
     }
 
-    public void deleteMovie(String id){
+    public void deleteMovie(String id) {
         repo.deleteMovie(id);
     }
 
