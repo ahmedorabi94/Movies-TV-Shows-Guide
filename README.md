@@ -1,8 +1,8 @@
 # Movies-TV-Shows-Guide
 
-# MVV Architecture Pattern 
+## MVVM Architecture Pattern 
 
-# Libraries
+## Libraries
    - Data Binding
    - Live Data
    - ViewModels
