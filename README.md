@@ -6,6 +6,7 @@
    - Data Binding
    - Live Data
    - ViewModels
+   - Room Database
    - Dagger 2
    - Retrofit
    - Glide
