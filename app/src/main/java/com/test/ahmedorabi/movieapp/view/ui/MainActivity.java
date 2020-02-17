@@ -39,6 +39,7 @@ public class MainActivity extends AppCompatActivity implements MoviesFragment.Fr
 
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
