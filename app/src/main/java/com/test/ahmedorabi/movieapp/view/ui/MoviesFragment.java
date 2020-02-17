@@ -149,11 +149,16 @@ public class MoviesFragment extends Fragment implements Injectable {
             assert movieResponseResource != null;
             if (movieResponseResource.status == Status.ERROR) {
                 Toast.makeText(getActivity(), "network failure.", Toast.LENGTH_SHORT).show();
-            } else {
+            } else if (movieResponseResource.status == Status.SUCCESS){
                 assert movieResponseResource.data != null;
                 movieAdapter = new MovieAdapter(getActivity(), movieResponseResource.data.getResults(), movieCallback);
                 recyclerView.setAdapter(movieAdapter);
             }
+
+
+
+
+
 
         });
 
@@ -161,7 +166,7 @@ public class MoviesFragment extends Fragment implements Injectable {
             assert movieResponseResource != null;
             if (movieResponseResource.status == Status.ERROR) {
                 Toast.makeText(getActivity(), "network failure.", Toast.LENGTH_SHORT).show();
-            } else {
+            } else if (movieResponseResource.status == Status.SUCCESS){
                 assert movieResponseResource.data != null;
                 movieAdapter = new MovieAdapter(getActivity(), movieResponseResource.data.getResults(), movieCallback);
                 recyclerView_topRated.setAdapter(movieAdapter);
@@ -173,7 +178,7 @@ public class MoviesFragment extends Fragment implements Injectable {
             assert movieResponseResource != null;
             if (movieResponseResource.status == Status.ERROR) {
                 Toast.makeText(getActivity(), "network failure.", Toast.LENGTH_SHORT).show();
-            } else {
+            } else if (movieResponseResource.status == Status.SUCCESS){
                 assert movieResponseResource.data != null;
                 movieAdapter = new MovieAdapter(getActivity(), movieResponseResource.data.getResults(), movieCallback);
                 recyclerView_Upcoming.setAdapter(movieAdapter);
@@ -185,7 +190,7 @@ public class MoviesFragment extends Fragment implements Injectable {
             assert movieResponseResource != null;
             if (movieResponseResource.status == Status.ERROR || movieResponseResource.data == null) {
                 Toast.makeText(getActivity(), "network failure.", Toast.LENGTH_SHORT).show();
-            } else {
+            } else if (movieResponseResource.status == Status.SUCCESS){
                 movieAdapter = new MovieAdapter(getActivity(), movieResponseResource.data.getResults(), movieCallback);
                 recyclerView_Popular.setAdapter(movieAdapter);
             }
@@ -196,7 +201,7 @@ public class MoviesFragment extends Fragment implements Injectable {
             assert movieResponseResource != null;
             if (movieResponseResource.status == Status.ERROR || movieResponseResource.data == null) {
                 Toast.makeText(getActivity(), "network failure.", Toast.LENGTH_SHORT).show();
-            } else {
+            } else if (movieResponseResource.status == Status.SUCCESS){
                 movieAdapter = new MovieAdapter(getActivity(), movieResponseResource.data.getResults(), movieCallback);
                 recyclerView_topHorroMovies.setAdapter(movieAdapter);
             }
@@ -206,7 +211,7 @@ public class MoviesFragment extends Fragment implements Injectable {
             assert movieResponseResource != null;
             if (movieResponseResource.status == Status.ERROR || movieResponseResource.data == null) {
                 Toast.makeText(getActivity(), "network failure.", Toast.LENGTH_SHORT).show();
-            } else {
+            } else if (movieResponseResource.status == Status.SUCCESS){
                 movieAdapter = new MovieAdapter(getActivity(), movieResponseResource.data.getResults(), movieCallback);
                 recyclerView_topActionMovies.setAdapter(movieAdapter);
             }
@@ -216,7 +221,7 @@ public class MoviesFragment extends Fragment implements Injectable {
             assert movieResponseResource != null;
             if (movieResponseResource.status == Status.ERROR || movieResponseResource.data == null) {
                 Toast.makeText(getActivity(), "network failure.", Toast.LENGTH_SHORT).show();
-            } else {
+            } else if (movieResponseResource.status == Status.SUCCESS){
                 movieAdapter = new MovieAdapter(getActivity(), movieResponseResource.data.getResults(), movieCallback);
                 recyclerView_topRamance.setAdapter(movieAdapter);
             }

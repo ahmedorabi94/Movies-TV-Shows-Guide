@@ -43,7 +43,7 @@ public class MovieNetModule {
         return new Retrofit.Builder()
                 .baseUrl("http://www.omdbapi.com")
                 .addConverterFactory(GsonConverterFactory.create())
-                .addCallAdapterFactory(new LiveDataCallAdapterFactory())
+               .addCallAdapterFactory(new LiveDataCallAdapterFactory())
                 .build()
                 .create(ApiInterface.class);
 

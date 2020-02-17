@@ -26,7 +26,7 @@ import dagger.android.support.HasSupportFragmentInjector;
 
 public class MainActivity extends AppCompatActivity implements MoviesFragment.FragmentListener, DetailActivityFragment.DetailFragmentListener, TVShowFragemnt.TvFragmentListener, HasSupportFragmentInjector {
 
-    public static final String API_KEY = BuildConfig.MovieSecAPIKEY;
+    public static final String API_KEY = "57d4b3dbc3a3685568008e60";
 
     public static final String TYPE = "type";
     @Inject

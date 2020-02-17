@@ -1,8 +1,14 @@
 package com.test.ahmedorabi.movieapp.api;
 
+import androidx.annotation.MainThread;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MediatorLiveData;
-import androidx.annotation.MainThread;
+
+import com.test.ahmedorabi.movieapp.repository.data.similarTvModel.Result;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 
 public abstract class NetworkBoundResource<ResultType, RequestType> {
@@ -20,7 +26,7 @@ public abstract class NetworkBoundResource<ResultType, RequestType> {
 
     private void fetchFromNetwork() {
 
-        final LiveData<ApiResponse<RequestType>> apiResponse = createCall();
+      final LiveData<ApiResponse<RequestType>> apiResponse = createCall();
 
 
         result.addSource(apiResponse, response -> {
@@ -34,6 +40,25 @@ public abstract class NetworkBoundResource<ResultType, RequestType> {
 
 
         });
+
+
+//        createCall().enqueue(new Callback<ApiResponse<RequestType>>() {
+//            @Override
+//            public void onResponse(Call<ApiResponse<RequestType>> call, Response<ApiResponse<RequestType>> response) {
+//
+//                if (response.isSuccessful()) {
+//
+//                    setValue(Resource.success(response.body().body));
+//
+//                }
+//
+//            }
+//
+//            @Override
+//            public void onFailure(Call<ApiResponse<RequestType>> call, Throwable t) {
+//                setValue(Resource.error(t.getMessage(), null));
+//            }
+//        });
 
 
     }

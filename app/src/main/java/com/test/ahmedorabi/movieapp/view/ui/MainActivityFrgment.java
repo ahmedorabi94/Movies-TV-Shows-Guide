@@ -13,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.crashlytics.android.Crashlytics;
 import com.test.ahmedorabi.movieapp.R;
 import com.test.ahmedorabi.movieapp.databinding.FragmentMainBinding;
 import com.test.ahmedorabi.movieapp.di.Injectable;
@@ -58,6 +59,7 @@ public class MainActivityFrgment extends Fragment implements Injectable {
         public void onFabClicked(View view) {
             Intent intent = new Intent(getActivity(), FavouriteActivity.class);
             startActivity(intent);
+
         }
     }
 
