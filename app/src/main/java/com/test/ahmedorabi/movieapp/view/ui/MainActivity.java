@@ -36,6 +36,9 @@ public class MainActivity extends AppCompatActivity implements MoviesFragment.Fr
     private boolean mtablet;
     private List<Result> nowPlayingList;
 
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
